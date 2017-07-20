@@ -42,4 +42,10 @@ class PicturesController < ApplicationController
     end
     
     
+    def edit_form
+        render("pic_templates/edit_form.html.erb") 
+    end
+    
+    
+    
 end
