@@ -34,8 +34,8 @@ class PicturesController < ApplicationController
         @the_caption = Photo.find(@the_id_number).caption
         @the_time_created = Photo.find(@the_id_number).created_at
         @the_time_updated = Photo.find(@the_id_number).updated_at
-
-        render("pic_templates/show.html.erb")
+        
+       redirect_to "/photos/#{@the_id_number}"
     end
 
     def new_form
@@ -66,7 +66,7 @@ class PicturesController < ApplicationController
         @killed_picture.save
         @number_of_pictures=Photo.count
         
-        render("pic_templates/delete_row.html.erb") 
+       redirect_to "/photos"
     end
     
     
