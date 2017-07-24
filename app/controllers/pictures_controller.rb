@@ -1,11 +1,11 @@
 class PicturesController < ApplicationController
 
     def show
-        the_id_number = params["the_id"]
-        @the_source = Photo.find(the_id_number).source
-        @the_caption = Photo.find(the_id_number).caption
-        @the_time_created = Photo.find(the_id_number).created_at
-        @the_time_updated = Photo.find(the_id_number).updated_at
+        @the_id_number = params["the_id"]
+        @the_source = Photo.find(@the_id_number).source
+        @the_caption = Photo.find(@the_id_number).caption
+        @the_time_created = Photo.find(@the_id_number).created_at
+        @the_time_updated = Photo.find(@the_id_number).updated_at
         
         render("pic_templates/show.html.erb")
     
