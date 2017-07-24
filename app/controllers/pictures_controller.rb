@@ -23,6 +23,20 @@ class PicturesController < ApplicationController
         
         render("pic_templates/create_row.html.erb") 
     end
+    
+    def update_row
+        update_photo=Photo.find(params["some_id"])
+        update_photo.source=params["the_source"]
+        update_photo.caption=params["the_caption"]
+        update_photo.save
+        @the_id_number = params["some_id"]
+        @the_source = Photo.find(@the_id_number).source
+        @the_caption = Photo.find(@the_id_number).caption
+        @the_time_created = Photo.find(@the_id_number).created_at
+        @the_time_updated = Photo.find(@the_id_number).updated_at
+
+        render("pic_templates/show.html.erb")
+    end
 
     def new_form
         render("pic_templates/new_form.html.erb")
@@ -57,6 +71,8 @@ class PicturesController < ApplicationController
     
     
     def edit_form
+        @edit_picture=params["an_id"]
+        
         render("pic_templates/edit_form.html.erb") 
     end
     

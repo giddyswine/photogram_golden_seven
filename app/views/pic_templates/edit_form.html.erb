@@ -5,15 +5,15 @@
     <div class="container">
       <div class="col-md-6">
 
-        <h1>Edit Photo 126</h1>
+        <h1>Edit Photo <%=@edit_picture%></h1>
 
-<form action="/update_photo/126">
+<form action="/update_photo/<%=@edit_picture%>">
   <div>
     <label for="source_input">
       Image URL
     </label>
 
-    <input id="source_input" type="text" name="the_source" value="jhjhklhljhk">
+    <input id="source_input" type="text" name="the_source" value="<%=Photo.find(@edit_picture).source%>">
   </div>
 
   <div>
@@ -21,7 +21,7 @@
       Caption
     </label>
 
-    <input id="caption_input" type="text" name="the_caption" value="vhhjhhh">
+    <input id="caption_input" type="text" name="the_caption" value="<%=Photo.find(@edit_picture).caption%>">
   </div>
 
   <button>
