@@ -30,13 +30,18 @@ class PicturesController < ApplicationController
     
     def index
         @photo_array=Photo.all.ids
-        @photo_array=Photo.all.ids
         @photos=Photo.all
-        @new=[]
+        @sources=[]
+        @ids=[]
+        @captions=[]
         @number=Photo.all.ids.count
         @photo_array.each do |photo|
             source = Photo.find(photo).source
-            @new.push(source)
+            id = Photo.find(photo).id
+            caption = Photo.find(photo).caption
+            @sources.push(source)
+            @ids.push(id)
+            @captions.push(caption)
             end
         render("pic_templates/index.html.erb")
     end
