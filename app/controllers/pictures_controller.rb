@@ -21,7 +21,7 @@ class PicturesController < ApplicationController
         new_photo.save
         @number_of_pictures=Photo.count
         
-        render("pic_templates/create_row.html.erb") 
+        redirect_to "/photos"
     end
     
     def update_row
