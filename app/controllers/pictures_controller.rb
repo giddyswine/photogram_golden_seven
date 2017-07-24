@@ -13,9 +13,6 @@ class PicturesController < ApplicationController
 
     def create_row
         new_photo=Photo.new
-        last_photo_id=Photo.last.id
-        new_photo_id=last_photo_id+1
-        new_photo.id=new_photo_id
         new_photo.source=params["the_source"]
         new_photo.caption=params["the_caption"]
         new_photo.save
